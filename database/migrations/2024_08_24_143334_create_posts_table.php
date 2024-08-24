@@ -1,5 +1,6 @@
 <?php
 
+use App\Enum\StatusPost;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->binary('description');
-            $table->enum('status_post', ['Approved', 'Denied', 'Pending'])->default('Pending');
+            $table->enum('status_post', array_column(StatusPost::cases(), "value"))
+                ->default(StatusPost::Pending->value);
             $table->dateTime('separation_date')->nullable();
             $table->decimal('odd');
             $table->timestamps();

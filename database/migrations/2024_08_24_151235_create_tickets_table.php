@@ -1,5 +1,6 @@
 <?php
 
+use App\Enum\TicketPlace;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
-            $table->enum('place', ['Primary', 'Secondary', 'Tertiary', 'Quaternary', 'Quinary', 'Loser'])
-                ->default('Loser');
+            $table->enum('place', array_column(TicketPlace::cases(), 'value'))
+                ->default(TicketPlace::Wait->value);
             $table->decimal('value', total: 15, places: 2);
             $table->timestamps();
         });
