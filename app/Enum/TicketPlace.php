@@ -11,4 +11,5 @@ enum TicketPlace: string
     case Quinary = 'Quinary';
     case Loser = 'Loser';
     case Wait = 'Wait';
+
 }
