@@ -18,9 +18,9 @@ class Role extends Model
     protected $table = 'roles';
 
     /**
-     * The table associated with the model.
+     * The attributes that are mass assignable.
      *
-     * @var string
+     * @var string[]
      */
     protected $fillable = [
         'name',
@@ -32,6 +32,6 @@ class Role extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class, "roles_users")->withTimestamps();
     }
 }
