@@ -42,6 +42,14 @@ class UserController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(User $user)
+    {
+        return view('admin.users.pages.edit', compact('user'));
+    }
+
+    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateUserRequest $request, User $user)

@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.app-admin')
 
 @section('title', 'Usuários')
 
