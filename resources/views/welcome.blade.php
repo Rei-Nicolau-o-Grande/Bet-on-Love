@@ -11,7 +11,7 @@
     <div id="app">
         <h1 style="color: black">Casamento Merda Bet</h1>
     </div>
-    <a href="{{ route('users') }}" class="block p-2 rounded hover:bg-gray-700">Users</a>
+    <a href="{{ route('users.index') }}" class="block p-2 rounded hover:bg-gray-700">Users</a>
 
 </body>
 </html>

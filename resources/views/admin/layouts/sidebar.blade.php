@@ -26,16 +26,19 @@
                 </li>
                 <li>
                     <a href="{{ route('users.index') }}" class="block p-2 rounded hover:bg-gray-700
-                    @if(request()->routeIs('users.*')) bg-gray-700 @endif">Users</a>
+                    @if(request()->routeIs('users.*')) bg-gray-700 @endif">{{ __('Users') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700">Roles</a>
+                    <a href="#" class="block p-2 rounded hover:bg-gray-700
+                   @if(request()->routeIs('roles.*')) bg-gray-700 @endif">{{ __('Roles') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700">Posts</a>
+                    <a href="#" class="block p-2 rounded hover:bg-gray-700
+                    @if(request()->routeIs('posts.*')) bg-gray-700 @endif">{{ __('Posts') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700">Tickets</a>
+                    <a href="#" class="block p-2 rounded hover:bg-gray-700
+                    @if(request()->routeIs('tickets.*')) bg-gray-700 @endif">{{ __('Tickets') }}</a>
                 </li>
                 <!-- Add more items as needed -->
             </ul>
