@@ -8,8 +8,7 @@
 </head>
 <body class="bg-slate-100">
 
-
-    <div id="app-admin" class="container mx-auto">
+    <div id="app-admin" class="w-full">
 
         <!-- include sidebar -->
         @include('admin.layouts.sidebar')

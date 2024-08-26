@@ -149,13 +149,18 @@
     "You may delete any of your existing tokens if they are no longer needed.": "Você deve deletar os tokens sem utilização.",
     "Your email address is unverified.": "Seu endereço de e-mail não foi verificado.",
 
+
     "Users": "Usuários",
     "Roles": "Funções",
     "Posts": "Postagens",
     "Tickets": "Bilhetes",
 
     "Create User": "Criar Usuário",
+    "Create Role": "Criar Função",
+    "Create Post": "Criar Postagem",
+    "Create Ticket": "Criar Bilhete",
 
+    "Back": "Voltar",
 
     "Sing in": "Entrar",
     "Sing up": "Registrar"
