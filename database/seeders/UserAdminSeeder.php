@@ -22,7 +22,9 @@ class UserAdminSeeder extends Seeder
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => bcrypt('123'),
+            'active' => true,
             'remember_token' => Str::random(10),
+            'created_at' => date_create('now')
         ]);
 
         // Recupera o papel "Administrator"
