@@ -1,0 +1,2 @@
+@extends('site.app-site')
+
