@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\UserAdminController;
+use App\Http\Controllers\site\LoginController;
+use App\Http\Controllers\site\UserPlayerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,9 +12,15 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+
+Route::group(['prefix' => '/', 'middleware' => []], function () {
+    Route::resource('register', UserPlayerController::class)->except(['index']);
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => []], function () {
     Route::resources([
-        'users' => UserController::class,
+        'users' => UserAdminController::class,
         'roles' => RoleController::class,
     ]);
 });

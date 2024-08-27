@@ -165,7 +165,9 @@
     "with": "com",
     "here": "aqui",
     "Don't have an account?": "Não tem uma conta?",
+    "Already have an account?": "Já tem uma conta?",
+    "Username": "Usuário",
 
     "Sign in": "Entrar",
-    "Sign up": "Registrar"
+    "Sign up": "Inscrever-se"
 }

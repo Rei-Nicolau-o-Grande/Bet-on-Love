@@ -19,7 +19,7 @@
             <a class="font-medium text-blue-500 focus:outline-none"
                href="{{ route('login') }}" aria-current="page">{{ __('Sign in') }}</a>
             <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-               href="#">{{ __('Sign up') }}</a>
+               href="{{ route('register.create') }}">{{ __('Sign up') }}</a>
             <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
                href="#">{{ __('Profile') }}</a>
             <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
