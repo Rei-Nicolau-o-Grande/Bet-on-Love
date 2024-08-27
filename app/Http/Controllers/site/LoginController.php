@@ -19,9 +19,9 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password', 'remember-me');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $credentials['remember-me'])) {
             // Authentication passed...
             $request->session()->regenerate();
             return redirect()->intended('users.index');
