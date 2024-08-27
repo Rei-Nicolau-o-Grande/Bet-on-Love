@@ -20,7 +20,7 @@
         </section>
 
         <main>
-
+            @yield('content')
         </main>
 
         <footer>

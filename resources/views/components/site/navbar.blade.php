@@ -1,6 +1,6 @@
 <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">
     <div class="flex items-center justify-between w-full">
-        <a class="flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80" href="#" aria-label="Brand">
+        <a class="flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80" href="{{ route('home') }}" aria-label="Brand">
         <span class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white">
           <img class="w-10 h-auto" src="" alt="Logo">
           Brand
@@ -16,10 +16,14 @@
     </div>
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-example-collapse">
         <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-            <a class="font-medium text-blue-500 focus:outline-none" href="#" aria-current="page">{{ __('Sing in') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">{{ __('Sing up') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">{{ __('Profile') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">{{ __('Logout') }}</a>
+            <a class="font-medium text-blue-500 focus:outline-none"
+               href="{{ route('login') }}" aria-current="page">{{ __('Sign in') }}</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+               href="#">{{ __('Sign up') }}</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+               href="#">{{ __('Profile') }}</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+               href="#">{{ __('Logout') }}</a>
         </div>
     </div>
 </nav>

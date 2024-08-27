@@ -22,7 +22,7 @@
         <nav class="flex-1 overflow-y-auto">
             <ul class="space-y-2 p-4">
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
+                    <a href="#" class="block p-2 rounded hover:bg-gray-700">{{ __('Dashboard') }}</a>
                 </li>
                 <li>
                     <a href="{{ route('users.index') }}" class="block p-2 rounded hover:bg-gray-700
