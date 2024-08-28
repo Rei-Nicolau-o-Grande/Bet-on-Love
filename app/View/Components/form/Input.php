@@ -44,6 +44,13 @@ class Input extends Component
     public $error;
 
     /**
+     * Valor do input.
+     *
+     * @var string
+     */
+    public $value;
+
+    /**
      * Cria uma nova instância do componente.
      *
      * @param string $id
@@ -53,13 +60,14 @@ class Input extends Component
      * @param string|null $error
      * @return void
      */
-    public function __construct(string $id, string $name, string $label, string $type, ?string $error)
+    public function __construct(string $id, string $name, string $label, string $type, ?string $error, string $value)
     {
         $this->id = $id;
         $this->name = $name;
         $this->label = $label;
         $this->type = $type;
         $this->error = $error;
+        $this->value = $value;
     }
 
     /**

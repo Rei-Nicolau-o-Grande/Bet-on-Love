@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,16 +20,39 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password', 'remember-me');
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember-me');
 
-        if (Auth::attempt($credentials, $credentials['remember-me'])) {
-            // Authentication passed...
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('users.index');
+
+            return $this->handleRedirectBasedOnRole();
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+            'email' => __('The provided credentials do not match our records.'),
+        ])->withInput();
+    }
+
+    protected function handleRedirectBasedOnRole(): RedirectResponse
+    {
+        $user = Auth::user();
+        $isAdmin = $user->roles()->where('name', 'Administrator')->exists();
+
+        if ($isAdmin) {
+            return redirect()->route('users.index');
+        }
+
+        return redirect()->route('home');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

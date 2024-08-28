@@ -20,7 +20,7 @@
             </header>
 
             <main class="mt-4">
-                <h1 class="text-2xl font-semibold text-gray-900 text-center">administração casamento merda bet</h1>
+                <h1 class="text-2xl font-semibold text-gray-900 text-center">Administração Casamento Merda Bet</h1>
                 @yield('content')
             </main>
 

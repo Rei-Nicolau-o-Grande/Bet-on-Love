@@ -6,6 +6,7 @@
             id="{{ $id }}"
             name="{{ $name }}"
             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
+            value="{{ old($name, $value) }}"
             {{ $attributes }}
         >
         @if($error)

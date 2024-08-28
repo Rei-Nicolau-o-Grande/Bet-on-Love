@@ -26,10 +26,28 @@
             {{ __('Or') }}
         </div>
 
-        <form>
+        <form action="{{ route('authenticate') }}" method="post">
+            @csrf
+            @method('POST')
             <div class="grid gap-y-4">
-                <x-form.input type="email" id="email" name="email" label="Email" error="" required />
-                <x-form.input type="password" id="password" name="password" label="Password" error="" required />
+                <x-form.input
+                    type="email"
+                    id="email"
+                    name="email"
+                    label="Email"
+                    error=""
+                    value="{{ old('email', '') }}"
+                    required
+                />
+                <x-form.input
+                    type="password"
+                    id="password"
+                    name="password"
+                    label="Password"
+                    error=""
+                    value="{{ old('password', '') }}"
+                    required
+                />
 
                 <div class="flex justify-between items-center">
                     <!-- Alinhado à esquerda -->

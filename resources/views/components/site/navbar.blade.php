@@ -16,14 +16,37 @@
     </div>
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-example-collapse">
         <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-            <a class="font-medium text-blue-500 focus:outline-none"
-               href="{{ route('login') }}" aria-current="page">{{ __('Sign in') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-               href="{{ route('register.create') }}">{{ __('Sign up') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-               href="#">{{ __('Profile') }}</a>
-            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-               href="#">{{ __('Logout') }}</a>
+            @if(Auth::check())
+                <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                   href="#"
+                >
+                    {{ __('Profile') }}
+                </a>
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <button
+                        type="submit"
+                        class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                    >
+                        {{ __('Logout') }}
+                    </button>
+                </form>
+            @else
+                <a class="font-medium text-blue-500 focus:outline-none"
+                   href="{{ route('login') }}" aria-current="page"
+                >
+                    {{ __('Sign in') }}
+                </a>
+
+                <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                   href="{{ route('register.create') }}"
+                >
+                    {{ __('Sign up') }}
+                </a>
+            @endif
+
         </div>
     </div>
 </nav>
