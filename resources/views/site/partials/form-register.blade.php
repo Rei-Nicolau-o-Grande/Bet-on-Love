@@ -71,6 +71,12 @@
                     required
                 />
 
+                <x-form.input-checkbox
+                    id="show_password"
+                    name="show_password"
+                    label="{{ __('Show password') }}"
+                />
+
                 <x-form.button
                     type="submit"
                     class="w-full mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
@@ -80,4 +86,19 @@
         </form>
         <!-- End Form -->
     </div>
+
+    <script>
+        document.getElementById('show_password').addEventListener('change', function() {
+            const passwordField = document.getElementById('password');
+            const passwordConfirmationField = document.getElementById('password_confirmation');
+
+            if (this.checked) {
+                passwordField.type = 'text';
+                passwordConfirmationField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                passwordConfirmationField.type = 'password';
+            }
+        });
+    </script>
 </x-form.card>
