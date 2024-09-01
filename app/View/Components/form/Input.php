@@ -8,65 +8,28 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
-    /**
-     * O id do input.
-     *
-     * @var string
-     */
     public $id;
-
-    /**
-     * O nome do input.
-     *
-     * @var string
-     */
     public $name;
-
-    /**
-     * O rótulo do input.
-     *
-     * @var string
-     */
     public $label;
-
-    /**
-     * O tipo do input.
-     *
-     * @var string
-     */
     public $type;
-
-    /**
-     * Mensagem de erro do input.
-     *
-     * @var string|null
-     */
-    public $error;
-
-    /**
-     * Valor do input.
-     *
-     * @var string
-     */
     public $value;
 
     /**
      * Cria uma nova instância do componente.
      *
-     * @param string $id
-     * @param string $name
-     * @param string $label
-     * @param string $type
-     * @param string|null $error
+     * @param string $id Id do input
+     * @param string $name Nome do input
+     * @param string $label Rótulo do input
+     * @param string $type Tipo do input
+     * @param string $value Value do input
      * @return void
      */
-    public function __construct(string $id, string $name, string $label, string $type, ?string $error, string $value)
+    public function __construct(string $id, string $name, string $label, string $type, string $value)
     {
         $this->id = $id;
         $this->name = $name;
         $this->label = $label;
         $this->type = $type;
-        $this->error = $error;
         $this->value = $value;
     }
 

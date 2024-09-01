@@ -11,7 +11,6 @@
             type="button"
            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white dark:bg-neutral-800 dark:text-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none"
         >
-
             <x-form.svg-google
                 class="w-4 h-auto"
                 width="46"
@@ -27,13 +26,54 @@
         </div>
 
         <!-- Form -->
-        <form>
+        <form action="{{ route('register.store') }}" method="post">
+            @csrf
+            @method('POST')
             <div class="grid gap-y-4">
-                <x-form.input type="text" id="username" name="username" label="Username" error="" value="{{ old('username') }}" required />
-                <x-form.input type="email" id="email" name="email" label="Email" error="" value="{{ old('email') }}" required />
-                <x-form.input type="password" id="password" name="password" label="Password" error="" value="{{ old('password') }}" required />
 
-                <x-form.button type="submit" class="w-full mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                <x-form.input
+                    type="text"
+                    id="username"
+                    name="username"
+                    label="Username"
+                    :error="$errors->get('username')"
+                    value="{{ old('username') }}"
+                    required
+                />
+
+                <x-form.input
+                    type="email"
+                    id="email"
+                    name="email"
+                    label="Email"
+                    :error="$errors->get('email')"
+                    value="{{ old('email') }}"
+                    required
+                />
+
+                <x-form.input
+                    type="password"
+                    id="password"
+                    name="password"
+                    label="Password"
+                    :error="$errors->get('password')"
+                    value="{{ old('password') }}"
+                    required
+                />
+
+                <x-form.input
+                    type="password"
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    label="Confirm Password"
+                    :error="$errors->get('password_confirmation')"
+                    value="{{ old('password_confirmation') }}"
+                    required
+                />
+
+                <x-form.button
+                    type="submit"
+                    class="w-full mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                     {{ __('Register') }}
                 </x-form.button>
             </div>
