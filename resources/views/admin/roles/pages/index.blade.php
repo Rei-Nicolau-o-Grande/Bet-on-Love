@@ -14,4 +14,16 @@
             {{ __('Create Role') }}
         </button>
     </a>
+
+    <x-admin.table
+        :columns="[
+            __('Name'),
+            __('Description'),
+            __('Created At'),
+            __('Updated At'),
+            __('Actions'),
+        ]"
+        :items="$roles"
+        modelType="roles"
+    />
 @endsection

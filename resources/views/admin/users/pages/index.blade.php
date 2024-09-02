@@ -13,4 +13,19 @@
             {{ __('Create User') }}
         </button>
     </a>
+
+    <x-admin.table
+        :columns="[
+            __('Username'),
+            __('Email'),
+            __('Role'),
+            __('email_verified_at'),
+            __('created_at'),
+            __('updated_at'),
+            __('active'),
+            __('actions'),
+        ]"
+        :items="$users"
+        modelType="users"
+    />
 @endsection
