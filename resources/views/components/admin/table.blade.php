@@ -9,7 +9,13 @@
                             <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">{{ $column }}</th>
                         @endforeach
                     </thead>
-                    <x-admin.table-body :items="$items" :columns="$columns" :modelType="$modelType" />
+
+                    <x-admin.table-body
+                        :items="$items"
+                        :columns="$columns"
+                        :modelType="$modelType"
+                    />
+
                 </table>
             </div>
         </div>

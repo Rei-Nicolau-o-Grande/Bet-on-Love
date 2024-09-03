@@ -32,6 +32,8 @@
             <div class="grid gap-y-4">
 
                 <x-form.input
+                    classLabel="block text-sm mb-2 dark:text-white"
+                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="text"
                     id="username"
                     name="username"
@@ -42,6 +44,8 @@
                 />
 
                 <x-form.input
+                    classLabel="block text-sm mb-2 dark:text-white"
+                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="email"
                     id="email"
                     name="email"
@@ -52,6 +56,8 @@
                 />
 
                 <x-form.input
+                    classLabel="block text-sm mb-2 dark:text-white"
+                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="password"
                     id="password"
                     name="password"
@@ -62,6 +68,8 @@
                 />
 
                 <x-form.input
+                    classLabel="block text-sm mb-2 dark:text-white"
+                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="password"
                     id="password_confirmation"
                     name="password_confirmation"
@@ -71,10 +79,8 @@
                     required
                 />
 
-                <x-form.input-checkbox
-                    id="show_password"
-                    name="show_password"
-                    label="{{ __('Show password') }}"
+                <x-form.show-password
+                    classLabel="ms-3 text-sm dark:text-white"
                 />
 
                 <x-form.button
@@ -86,19 +92,4 @@
         </form>
         <!-- End Form -->
     </div>
-
-    <script>
-        document.getElementById('show_password').addEventListener('change', function() {
-            const passwordField = document.getElementById('password');
-            const passwordConfirmationField = document.getElementById('password_confirmation');
-
-            if (this.checked) {
-                passwordField.type = 'text';
-                passwordConfirmationField.type = 'text';
-            } else {
-                passwordField.type = 'password';
-                passwordConfirmationField.type = 'password';
-            }
-        });
-    </script>
 </x-form.card>

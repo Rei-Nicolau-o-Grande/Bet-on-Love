@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
+    <title>Casamento Merda Bet - @yield('title')</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body class="bg-slate-100">
@@ -14,7 +14,7 @@
         @include('admin.layouts.sidebar')
 
         <!-- main content -->
-        <div class="flex-1 p-4 sm:ml-64">
+        <div class="flex-1 p-4 md:ml-64">
             <header>
                 @include('admin.layouts.header')
             </header>

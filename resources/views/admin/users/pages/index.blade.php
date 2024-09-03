@@ -28,4 +28,5 @@
         :items="$users"
         modelType="users"
     />
+
 @endsection

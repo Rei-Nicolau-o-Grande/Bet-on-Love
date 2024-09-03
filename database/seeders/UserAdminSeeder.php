@@ -18,10 +18,10 @@ class UserAdminSeeder extends Seeder
     {
         // Cria o usuário administrador
         $user = User::create([
-            'username' => 'admin',
-            'email' => 'admin@admin.com',
+            'username' => env('ADMIN_USERNAME'),
+            'email' => env('ADMIN_EMAIL'),
             'email_verified_at' => now(),
-            'password' => bcrypt('123'),
+            'password' => bcrypt(env('ADMIN_PASSWORD')),
             'active' => true,
             'remember_token' => Str::random(10),
             'created_at' => date_create('now')

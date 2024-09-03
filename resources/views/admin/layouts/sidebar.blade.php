@@ -1,5 +1,5 @@
 <!-- Button to toggle sidebar (visible on small screens) -->
-<button data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+<button data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
     <span class="sr-only">Abrir menu de navegação</span>
     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
@@ -9,11 +9,11 @@
 <!-- Overlay for closing the sidebar when clicking outside -->
 <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
 
-<div id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-gray-800 text-white sm:translate-x-0">
+<div id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-gray-800 text-white md:translate-x-0">
     <div class="flex flex-col h-full">
         <div class="flex items-center justify-between p-4 border-b border-gray-700">
             <h2 class="text-lg font-semibold">Admin Dashboard</h2>
-            <button data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-gray-400 hover:text-white sm:hidden">
+            <button data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-gray-400 hover:text-white md:hidden">
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>

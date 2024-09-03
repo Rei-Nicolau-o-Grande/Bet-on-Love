@@ -170,6 +170,9 @@
     "Username": "Usuário",
     "Not Verified": "Não verificado",
     "Verified": "Verificado",
+    "Select Role...": "Selecione a Função...",
+    "The selected role is invalid.": "A função selecionada é inválida.",
+    "The role field is required.": "O campo de função é obrigatório.",
 
     "Edit": "Editar",
     "View": "Visualizar",

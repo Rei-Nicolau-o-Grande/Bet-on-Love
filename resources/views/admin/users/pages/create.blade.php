@@ -3,13 +3,15 @@
 @section('title', __('Create User'))
 
 @section('content')
-    <h1 class="">{{ __('Create User') }}</h1>
-    <a href="{{ route('users.index') }}" class="">
-        <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:bg-red-600 disabled:opacity-50 disabled:pointer-events-none">
-            {{ __('Back') }}
-        </button>
-    </a>
+    <h1 class="text-2xl text-center">{{ __('Create User') }}</h1>
 
-    @include('admin.users.partials.form-users')
+    <x-admin.form-model
+        action="{{ route('users.store') }}"
+        method="post"
+    >
+        @csrf
+        @method('POST')
+        @include('admin.users.partials.form-users')
+    </x-admin.form-model>
 
 @endsection
