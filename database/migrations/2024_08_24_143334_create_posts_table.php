@@ -18,7 +18,7 @@ return new class extends Migration
             $table->binary('description');
             $table->enum('status_post', array_column(StatusPost::cases(), "value"))
                 ->default(StatusPost::Pending->value);
-            $table->dateTime('separation_date')->nullable();
+            $table->dateTime('finish_date')->nullable();
             $table->decimal('odd');
             $table->timestamps();
         });

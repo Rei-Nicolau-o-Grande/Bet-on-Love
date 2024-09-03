@@ -4,8 +4,8 @@ namespace App\Enum;
 
 enum StatusPost: string
 {
-    case Approved = 'Approved';
-    case Denied = 'Denied';
+    case Published = 'Published';
     case Pending = 'Pending';
-
+    case Denied = 'Denied';
+    case Draft = 'Draft';
 }
