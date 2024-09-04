@@ -80,8 +80,24 @@ class UserAdminController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
-        $user->delete();
+        $user->update([
+            'active' => false
+        ]);
+
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
+    }
+
+    /**
+     * Activate user.
+     */
+    public function active(User $user): RedirectResponse
+    {
+        $user->update([
+            'active' => true
+        ]);
+
+        return redirect()->route('users.index')
+            ->with('success', 'User restored successfully');
     }
 }

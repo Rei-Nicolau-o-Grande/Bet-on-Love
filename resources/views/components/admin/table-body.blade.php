@@ -45,6 +45,18 @@
                         {{ __('Edit') }}
                     </a>
 
+                    <form action="{{ route('users.active', $user->id) }}" method="post">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <x-form.button
+                            type="submit"
+                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                        >
+                            {{ __('Enable') }}
+                        </x-form.button>
+                    </form>
+
                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
                         @csrf
                         @method('DELETE')
