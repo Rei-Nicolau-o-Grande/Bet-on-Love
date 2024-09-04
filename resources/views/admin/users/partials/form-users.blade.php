@@ -7,7 +7,7 @@
     name="username"
     label="Username"
     :error="$errors->get('username')"
-    value="{{ old('username') }}"
+    value="{{ $user->username ?? old('username') }}"
     required
 />
 
@@ -19,7 +19,7 @@
     name="email"
     label="Email"
     :error="$errors->get('email')"
-    value="{{ old('email') }}"
+    value="{{ $user->email ?? old('email') }}"
     required
 />
 
@@ -61,7 +61,7 @@
     <option value="">{{ __('Select Role...') }}</option>
     @foreach($roles as $role)
         <option
-            {{ old('role_id') == $role->id ? 'selected' : '' }}
+            {{ (isset($user) && $user->roles->contains($role->id)) || (old('role_id') == $role->id) ? 'selected' : '' }}
             value="{{ $role->id }}"
         >
             {{ $role->name }}
@@ -82,6 +82,6 @@
         type="submit"
         class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
     >
-        {{ __('Create') }}
+        {{ isset($user) ? __('Update') : __('Create') }}
     </x-form.button>
 </div>

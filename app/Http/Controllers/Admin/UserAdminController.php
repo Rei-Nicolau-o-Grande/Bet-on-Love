@@ -63,7 +63,10 @@ class UserAdminController extends Controller
      */
     public function edit(User $user): View
     {
-        return view('admin.users.pages.edit', compact('user'));
+        return view('admin.users.pages.edit', [
+            'user' => $user,
+            'roles' => Role::all()
+        ]);
     }
 
     /**
@@ -71,6 +74,16 @@ class UserAdminController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $validated = $request->safe()->only(['username', 'email', 'password', 'role_id']);
+
+        $user->update([
+            'username' => $validated['username'],
+            'email' => $validated['email'],
+            'password' => $validated['password'] ? Hash::make($validated['password']) : $user->password,
+        ]);
+
+        $user->roles()->sync($validated['role_id']);
+
         return redirect()->route('users.show', $user->id)
             ->with('success', 'User updated successfully');
     }
@@ -84,7 +97,7 @@ class UserAdminController extends Controller
             'active' => false
         ]);
 
-        return redirect()->route('users.index')
+        return redirect()->route('users.show', $user->id)
             ->with('success', 'User deleted successfully');
     }
 
@@ -97,7 +110,7 @@ class UserAdminController extends Controller
             'active' => true
         ]);
 
-        return redirect()->route('users.index')
+        return redirect()->route('users.show', $user->id)
             ->with('success', 'User restored successfully');
     }
 }

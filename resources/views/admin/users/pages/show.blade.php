@@ -16,6 +16,7 @@
             <div class="col-span-2">
                 <p class="text-lg font-medium text-gray-900">{{ $user->username }}</p>
                 <p class="text-sm text-gray-500">{{ $user->email }}</p>
+                <p class="text-sm text-gray-400">{{ $user->email_verified_at ? $user->email_verified_at->diffForHumans() : __('Not Verified') }}</p>
                 <p class="text-sm text-gray-500">{{ $user->roles->first()->name }}</p>
                 <p class="text-sm text-gray-400">{{ $user->roles->first()->description }}</p>
             </div>

@@ -70,4 +70,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ticket::class);
     }
+
+    /**
+     * Check if user is admin.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->roles->contains('name', 'Administrator');
+    }
 }
