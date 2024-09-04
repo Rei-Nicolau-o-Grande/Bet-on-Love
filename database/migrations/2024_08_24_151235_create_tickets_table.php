@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->enum('place', array_column(TicketPlace::cases(), 'value'))
                 ->default(TicketPlace::Wait->value);
+            $table->string('code')->unique();
             $table->decimal('value', total: 15, places: 2);
             $table->timestamps();
         });
