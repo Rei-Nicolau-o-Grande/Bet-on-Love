@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->binary('description');
+            $table->binary('content');
             $table->enum('status_post', array_column(StatusPost::cases(), "value"))
                 ->default(StatusPost::Pending->value);
             $table->string('code')->unique();

@@ -1,6 +1,6 @@
 @props(['items', 'columns', 'modelType'])
 
-<tbody class="divide-y divide-gray-200">
+<tbody class="divide-y divide-gray-500">
     @if($items->isEmpty())
         <tr>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800" colspan="{{ count($columns) }}">
@@ -10,7 +10,7 @@
     @endif
     @if($modelType === 'users')
         @foreach($items as $user)
-            <tr>
+            <tr class="hover:bg-stone-200">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                     {{ $user->username }}
                 </td>
