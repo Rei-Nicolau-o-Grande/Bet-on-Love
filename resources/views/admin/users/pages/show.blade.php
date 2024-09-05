@@ -7,21 +7,45 @@
 
     <x-admin.card-show>
         <x-slot name="cardInformation">
-            <x-admin.span-information :label="__('Username')" :value="$user->username" />
+            <x-admin.span-information
+                :label="__('Username')"
+                :value="$user->username"
+            />
 
-            <x-admin.span-information :label="__('Email')" :value="$user->email" />
+            <x-admin.span-information
+                :label="__('Email')"
+                :value="$user->email"
+            />
 
-            <x-admin.span-information :label="__('Email Verified')" :value="$user->email_verified_at ? $user->email_verified_at->diffForHumans() : __('Not Verified')" />
+            <x-admin.span-information
+                :label="__('Email Verified')"
+                :value="$user->email_verified_at ? $user->email_verified_at->diffForHumans() : __('Not Verified')"
+            />
 
-            <x-admin.span-information :label="__('Created At')" :value="$user->created_at->diffForHumans()" />
+            <x-admin.span-information
+                :label="__('Created At')"
+                :value="$user->created_at->diffForHumans()"
+            />
 
-            <x-admin.span-information :label="__('Updated At')" :value="$user->updated_at->diffForHumans()" />
+            <x-admin.span-information
+                :label="__('Updated At')"
+                :value="$user->updated_at->diffForHumans()"
+            />
 
-            <x-admin.span-information :label="__('Active')" :value="$user->active ? __('Yes') : __('No')" />
+            <x-admin.span-information
+                :label="__('Active')"
+                :value="$user->active ? __('Yes') : __('No')"
+            />
 
-            <x-admin.span-information :label="__('Role')" :value="$user->roles->first()->name" />
+            <x-admin.span-information
+                :label="__('Role')"
+                :value="$user->roles->first()->name"
+            />
 
-            <x-admin.span-information :label="__('Description')" :value="$user->roles->first()->description" />
+            <x-admin.span-information
+                :label="__('Description')"
+                :value="$user->roles->first()->description"
+            />
         </x-slot>
 
         <x-slot name="cardActionButtons">
