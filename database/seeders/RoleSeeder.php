@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
         $roles = [
             [
                 'name' => 'Administrator',
-                'description' => 'The system Administrator.',
+                'description' => 'Administrator users can perform any action.',
             ],
             [
                 'name' => 'Player',

@@ -30,44 +30,14 @@
                     {{ $user->updated_at->diffForHumans() }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                    {{ $user->active ? __('True') : __('False') }}
+                    {{ $user->active ? __('Yes') : __('No') }}
                 </td>
 
                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
-
                     <a href="{{ route('users.show', $user->id) }}"
                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
                         {{ __('View') }}
                     </a>
-
-                    <a href="{{ route('users.edit', $user->id) }}"
-                       class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
-                        {{ __('Edit') }}
-                    </a>
-
-                    <form action="{{ route('users.active', $user->id) }}" method="post">
-                        @csrf
-                        @method('PATCH')
-                        <input type="hidden" name="id" value="{{ $user->id }}">
-                        <x-form.button
-                            type="submit"
-                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                            {{ __('Enable') }}
-                        </x-form.button>
-                    </form>
-
-                    <form action="{{ route('users.destroy', $user->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input type="hidden" name="id" value="{{ $user->id }}">
-                        <x-form.button
-                            type="submit"
-                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                            {{ __('Disable') }}
-                        </x-form.button>
-                    </form>
                 </td>
             </tr>
         @endforeach

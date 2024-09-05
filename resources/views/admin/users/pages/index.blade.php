@@ -19,11 +19,11 @@
             __('Username'),
             __('Email'),
             __('Role'),
-            __('email_verified_at'),
-            __('created_at'),
-            __('updated_at'),
-            __('active'),
-            __('actions'),
+            __('Verified At'),
+            __('Created At'),
+            __('Updated At'),
+            __('Active'),
+            __('Actions'),
         ]"
         :items="$users"
         modelType="users"

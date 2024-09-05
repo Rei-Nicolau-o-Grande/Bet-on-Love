@@ -160,6 +160,8 @@
     "Create Post": "Criar Postagem",
     "Create Ticket": "Criar Bilhete",
 
+    "Yes": "Sim",
+    "No": "Não",
     "Back": "Voltar",
     "Or": "Ou",
     "with": "com",
@@ -170,6 +172,12 @@
     "Username": "Usuário",
     "Not Verified": "Não verificado",
     "Verified": "Verificado",
+    "Verified At": "Verificado em",
+    "Created At": "Criado em",
+    "Updated At": "Atualizado em",
+    "Actions": "Ações",
+    "Active": "Ativo",
+    "Description": "Descrição",
     "Select Role...": "Selecione a Função...",
     "The selected role is invalid.": "A função selecionada é inválida.",
     "The role field is required.": "O campo de função é obrigatório.",
@@ -177,6 +185,11 @@
     "Update": "Atualizar",
     "Edit": "Editar",
     "View": "Visualizar",
+    "Are you sure you want to enable this user ?": "Tem certeza de que deseja habilitar este usuário ?",
+    "Are you sure you want to disable this user ?": "Tem certeza de que deseja desabilitar este usuário ?",
+
+    "Read more": "Leia mais",
+    "Read less": "Leia menos",
 
     "Sign in": "Entrar",
     "Sign up": "Inscrever-se"
