@@ -72,12 +72,12 @@
                         @csrf
                         @method('DELETE')
                         <input type="hidden" name="id" value="{{ $role->id }}">
-                        <x-form.button
+                        <button
                             type="submit"
                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                         >
                             {{ __('Delete') }}
-                        </x-form.button>
+                        </button>
                     </form>
                 </td>
             </tr>

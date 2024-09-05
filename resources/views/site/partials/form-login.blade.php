@@ -30,8 +30,6 @@
             @method('POST')
             <div class="grid gap-y-4">
                 <x-form.input
-                    classLabel="block text-sm mb-2 dark:text-white"
-                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="email"
                     id="email"
                     name="email"
@@ -41,8 +39,6 @@
                     required
                 />
                 <x-form.input
-                    classLabel="block text-sm mb-2 dark:text-white"
-                    classInput="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-white"
                     type="password"
                     id="password"
                     name="password"
