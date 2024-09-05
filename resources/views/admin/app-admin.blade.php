@@ -6,7 +6,7 @@
     <title>Casamento Merda Bet - @yield('title')</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
-<body class="bg-slate-100">
+<body class="bg-slate-200">
 
     <div id="app-admin" class="w-full">
 
