@@ -185,8 +185,8 @@
     "Update": "Atualizar",
     "Edit": "Editar",
     "View": "Visualizar",
-    "Are you sure you want to enable this user ?": "Tem certeza de que deseja habilitar este usuário ?",
-    "Are you sure you want to disable this user ?": "Tem certeza de que deseja desabilitar este usuário ?",
+    "Are you sure you want to 'ENABLE' ?": "Tem certeza de que deseja habilitar ?",
+    "Are you sure you want to 'DISABLE' ?": "Tem certeza de que deseja desabilitar ?",
 
     "Read more": "Leia mais",
     "Read less": "Leia menos",
