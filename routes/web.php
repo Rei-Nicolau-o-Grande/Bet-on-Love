@@ -11,12 +11,16 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => '/', 'middleware' => []], function () {
-    Route::resource('register', UserPlayerController::class)->except(['index']);
+//    Route::resource('register', UserPlayerController::class, ['middleware' => []])
+//        ->except(['index']);
+    Route::get('profile', [UserPlayerController::class, 'show'])->name('profile');
+    Route::get('register', [UserPlayerController::class, 'create'])->name('register.create');
+    Route::post('register', [UserPlayerController::class, 'store'])->name('register.store');
+    Route::delete('profile/{user}', [UserPlayerController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {

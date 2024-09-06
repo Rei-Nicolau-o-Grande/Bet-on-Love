@@ -52,9 +52,10 @@ class UserPlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        $user = auth()->user();
+        return view('site.pages.profile', compact('user'));
     }
 
     /**
@@ -76,8 +77,15 @@ class UserPlayerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user): RedirectResponse
     {
-        //
+        $user->update([
+            'active' => false
+        ]);
+
+        auth()->logout();
+
+        return redirect()->route('home')
+            ->with('success', 'User deactivated successfully');
     }
 }
