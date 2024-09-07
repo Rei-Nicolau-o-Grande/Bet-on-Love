@@ -11,7 +11,10 @@ class UpdateRoleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        /**
+        * Verify if the user is an admin
+        */
+        return auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +25,8 @@ class UpdateRoleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|unique:roles,name,' . $this->role->id,
+            'description' => 'nullable|string'
         ];
     }
 }

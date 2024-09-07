@@ -34,7 +34,7 @@
 
             <x-admin.span-information
                 :label="__('Active')"
-                :value="$user->active ? __('Yes') : __('No')"
+                :value="$user->is_active ? __('Yes') : __('No')"
             />
 
             <x-admin.span-information

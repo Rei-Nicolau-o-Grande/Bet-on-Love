@@ -20,6 +20,7 @@
             __('Description'),
             __('Created At'),
             __('Updated At'),
+            __('Active'),
             __('Actions'),
         ]"
         :items="$roles"

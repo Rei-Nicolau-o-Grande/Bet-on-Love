@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'email_verified_at' => now(),
             'password' => bcrypt('123'),
-            'active' => true,
+            'is_active' => true,
             'remember_token' => Str::random(10),
             'created_at' => date_create('now')
         ]);

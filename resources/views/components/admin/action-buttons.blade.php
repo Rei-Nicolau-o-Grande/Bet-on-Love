@@ -7,7 +7,7 @@
             {{ __('Edit') }}
         </button>
     </a>
-    @if($model->active == 0)
+    @if($model->is_active == 0)
         <form action="{{ $routeEnable }}" method="post" class="w-full"
               onsubmit="return confirm('{{ __("Are you sure you want to 'ENABLE' ?")}}');"
         >
@@ -20,7 +20,7 @@
                 {{ __('Enable') }}
             </button>
         </form>
-    @elseif($model->active == 1)
+    @elseif($model->is_active == 1)
         <form action="{{ $routeDisable }}" method="post" class="w-full"
               onsubmit="return confirm('{{ __("Are you sure you want to 'DISABLE' ?") }}');"
         >

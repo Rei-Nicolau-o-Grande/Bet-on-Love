@@ -30,7 +30,7 @@
                     {{ $user->updated_at->diffForHumans() }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                    {{ $user->active ? __('Yes') : __('No') }}
+                    {{ $user->is_active ? __('Yes') : __('No') }}
                 </td>
 
                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
@@ -48,7 +48,7 @@
                     {{ $role->name }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                    {{ $role->description }}
+                    {{ __(Str::limit($role->description, 50)) }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {{ $role->created_at->diffForHumans() }}
@@ -56,29 +56,15 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {{ $role->updated_at->diffForHumans() }}
                 </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {{ $role->is_active ? __('Yes') : __('No') }}
+                </td>
                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
 
                     <a href="{{ route('roles.show', $role->id) }}"
                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
                         {{ __('View') }}
                     </a>
-
-                    <a href="{{ route('roles.edit', $role->id) }}"
-                       class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
-                        {{ __('Edit') }}
-                    </a>
-
-                    <form action="{{ route('roles.destroy', $role->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input type="hidden" name="id" value="{{ $role->id }}">
-                        <button
-                            type="submit"
-                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                            {{ __('Delete') }}
-                        </button>
-                    </form>
                 </td>
             </tr>
         @endforeach

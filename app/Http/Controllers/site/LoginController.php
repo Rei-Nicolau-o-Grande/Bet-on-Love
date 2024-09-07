@@ -42,8 +42,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
-            if ($user && !$user->active) {
-                $user->active = true;
+            if ($user && !$user->is_active) {
+                $user->is_active = true;
                 $user->save();
             }
             $request->session()->regenerate();

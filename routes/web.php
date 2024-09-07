@@ -27,6 +27,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'roles' => RoleController::class,
     ]);
 
-    // Active User Route
     Route::patch('users/{user}/active', [UserAdminController::class, 'active'])->name('users.active');
+    Route::patch('roles/{role}/active', [RoleController::class, 'active'])->name('roles.active');
 });

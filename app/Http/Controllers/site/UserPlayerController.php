@@ -80,7 +80,7 @@ class UserPlayerController extends Controller
     public function destroy(User $user): RedirectResponse
     {
         $user->update([
-            'active' => false
+            'is_active' => false
         ]);
 
         auth()->logout();

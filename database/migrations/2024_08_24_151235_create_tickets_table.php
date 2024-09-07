@@ -20,6 +20,7 @@ return new class extends Migration
                 ->default(TicketPlace::Wait->value);
             $table->string('code')->unique();
             $table->decimal('value', total: 15, places: 2);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

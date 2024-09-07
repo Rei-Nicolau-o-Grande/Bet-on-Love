@@ -94,7 +94,7 @@ class UserAdminController extends Controller
     public function destroy(User $user): RedirectResponse
     {
         $user->update([
-            'active' => false
+            'is_active' => false
         ]);
 
         return redirect()->route('users.show', $user->id)
@@ -107,7 +107,7 @@ class UserAdminController extends Controller
     public function active(User $user): RedirectResponse
     {
         $user->update([
-            'active' => true
+            'is_active' => true
         ]);
 
         return redirect()->route('users.show', $user->id)

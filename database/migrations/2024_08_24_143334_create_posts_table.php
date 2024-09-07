@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->dateTime('finish_date')->nullable();
             $table->decimal('odd');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
