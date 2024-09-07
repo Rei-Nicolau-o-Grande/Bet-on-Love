@@ -3,14 +3,27 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RoleRedirectService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class LoginController extends Controller
 {
 
-    public function index()
+    protected RoleRedirectService $roleRedirectService;
+
+    /**
+     * @param RoleRedirectService $roleRedirectService
+     */
+    public function __construct(RoleRedirectService $roleRedirectService)
+    {
+        $this->roleRedirectService = $roleRedirectService;
+    }
+
+
+    public function index(): View
     {
         return view('site.pages.login');
     }
@@ -18,7 +31,7 @@ class LoginController extends Controller
     /**
      * Handle an authentication attempt.
      */
-    public function authenticate(Request $request)
+    public function authenticate(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => 'required|email',
@@ -28,9 +41,13 @@ class LoginController extends Controller
         $remember = $request->has('remember-me');
 
         if (Auth::attempt($credentials, $remember)) {
+            $user = Auth::user();
+            if ($user && !$user->active) {
+                $user->active = true;
+                $user->save();
+            }
             $request->session()->regenerate();
-
-            return $this->handleRedirectBasedOnRole();
+            return $this->roleRedirectService->handleRedirectBasedOnRole();
         }
 
         return back()->withErrors([
@@ -38,19 +55,7 @@ class LoginController extends Controller
         ])->withInput();
     }
 
-    protected function handleRedirectBasedOnRole(): RedirectResponse
-    {
-        $user = Auth::user();
-        $isAdmin = $user->roles()->where('name', 'Administrator')->exists();
-
-        if ($isAdmin) {
-            return redirect()->route('users.index');
-        }
-
-        return redirect()->route('home');
-    }
-
-    public function logout()
+    public function logout(): RedirectResponse
     {
         Auth::logout();
         return redirect()->route('login');
