@@ -40,7 +40,11 @@
                     <a href="#" class="block p-2 rounded hover:bg-gray-700
                     @if(request()->routeIs('tickets.*')) bg-gray-700 @endif">{{ __('Tickets') }}</a>
                 </li>
-                <!-- Add more items as needed -->
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <button type="submit" class="block w-full my-2 p-2 rounded bg-red-500 hover:bg-red-700">{{ __('Logout') }}</button>
+                </form>
             </ul>
         </nav>
     </div>
