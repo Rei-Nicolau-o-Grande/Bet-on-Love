@@ -3,7 +3,7 @@
 @section('title', __('Users'))
 
 @section('content')
-
+    <x-global.alert />
     <h1>{{ __('Users') }}</h1>
     <a href="{{ route('users.create') }}" class="">
         <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border

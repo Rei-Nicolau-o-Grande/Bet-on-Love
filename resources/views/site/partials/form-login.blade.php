@@ -34,7 +34,7 @@
                     id="email"
                     name="email"
                     label="Email"
-                    error=""
+                    :error="$errors->get('email')"
                     value="{{ old('email', '') }}"
                     required
                 />

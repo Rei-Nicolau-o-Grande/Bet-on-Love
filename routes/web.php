@@ -16,8 +16,10 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('profile', [UserPlayerController::class, 'show'])->name('profile');
-    Route::get('register', [UserPlayerController::class, 'create'])->name('register.create');
-    Route::post('register', [UserPlayerController::class, 'store'])->name('register.store');
+    Route::get('register', [UserPlayerController::class, 'create'])->name('register.create')
+        ->withoutMiddleware('auth');
+    Route::post('register', [UserPlayerController::class, 'store'])->name('register.store')
+        ->withoutMiddleware('auth');
     Route::delete('profile/{user}', [UserPlayerController::class, 'destroy'])->name('profile.destroy');
 });
 

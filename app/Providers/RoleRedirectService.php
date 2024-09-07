@@ -20,8 +20,8 @@ class RoleRedirectService extends ServiceProvider
         $isPlayer = $user->roles()->where('name', 'Player')->exists();
 
         return match (true) {
-            $isAdmin => redirect()->route('users.index'),
-            $isPlayer => redirect()->route('profile'),
+            $isAdmin => redirect()->route('users.index')->with('success', 'Welcome Admin!'),
+            $isPlayer => redirect()->route('profile')->with('success', 'Welcome! You are logged in.'),
             default => redirect()->route('login')
                 ->withErrors(['message' => 'Você não tem permissão para acessar esta página.']),
         };
