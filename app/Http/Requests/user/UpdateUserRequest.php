@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\user;
 
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
@@ -12,10 +13,23 @@ class UpdateUserRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        $userIdBeingUpdated = $this->route('user'); // Assumindo que o ID do usuário está na rota
+        $userBeingUpdated = $this->route('user'); // Assumindo que o 'user' na rota é o objeto User
 
         // Verifica se o usuário é admin ou se está atualizando seus próprios dados
-        return $user->isAdmin() || $user->id === (int) $userIdBeingUpdated;
+        return $user->isAdmin() || $user->id === $userBeingUpdated->id;
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        if (!$this->has('role_id')) {
+            $playerRole = Role::where('name', 'Player')->first();
+            $this->merge([
+                'role_id' => $playerRole->id,
+            ]);
+        }
     }
 
     /**

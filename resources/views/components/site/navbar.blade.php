@@ -23,6 +23,18 @@
                     {{ __('Profile') }}
                 </a>
 
+                <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                   href=""
+                >
+                    {{ __('Tickets') }}
+                </a>
+
+                <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                   href=""
+                >
+                    {{ __('Posts') }}
+                </a>
+
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     @method('POST')
@@ -46,7 +58,6 @@
                     {{ __('Sign up') }}
                 </a>
             @endif
-
         </div>
     </div>
 </nav>

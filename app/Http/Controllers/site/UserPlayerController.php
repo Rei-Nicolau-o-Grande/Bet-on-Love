@@ -61,17 +61,27 @@ class UserPlayerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(): View
     {
-        //
+        $user = auth()->user();
+        return view('site.pages.edit-profile', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, string $id)
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        //
+        $validated = $request->safe()->only(['username', 'email', 'password']);
+
+        $user->update([
+            'username' => $validated['username'],
+            'email' => $validated['email'],
+            'password' => $validated['password'] ? Hash::make($validated['password']) : $user->password
+        ]);
+
+        return redirect()->route('profile')
+            ->with('success', 'Profile updated successfully');
     }
 
     /**
