@@ -13,10 +13,10 @@
             @foreach($items as $user)
                 <tr class="hover:bg-stone-200 {{ $user->is_active ? 'bg-white' : 'bg-gray-300' }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                        {{ $user->username }}
+                        {{ __(Str::limit($user->username, 15)) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $user->email }}
+                        {{ __(Str::limit($user->email, 20)) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $user->roles->first()->name }}
@@ -75,7 +75,7 @@
             @foreach($items as $post)
                 <tr class="hover:bg-stone-200 {{ $post->is_active ? 'bg-white' : 'bg-gray-300' }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $post->title }}
+                        {{ __(Str::limit($post->title, 15)) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $post->code }}

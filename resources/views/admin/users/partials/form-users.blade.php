@@ -48,8 +48,10 @@
 />
 
 <x-admin.select-form
+    :label="__('Role')"
     :name="'role_id'"
     :error="$errors->get('role_id')"
+    :placeholder="'Select Role...'"
 >
     <option value="">{{ __('Select Role...') }}</option>
     @foreach($roles as $role)

@@ -1,6 +1,11 @@
+<!-- Label Select -->
+<label for="{{ $name }}" class="">
+    {{ $label }}
+</label>
+
 <!-- Select -->
 <select data-hs-select='{
-  "placeholder": "{{ __('Select Role...') }}",
+  "placeholder": "{{ __($placeholder) ?? '' }}",
   "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
   "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
   "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
@@ -10,6 +15,7 @@
 }'
     class="hidden"
     name="{{ $name }}"
+    id="{{ $name }}"
     >
         {{ $slot }}
 </select>
@@ -21,3 +27,5 @@
 @elseif($error)
     <p class="text-sm text-red-600">{{ $error }}</p>
 @endif
+<!-- Select -->
+

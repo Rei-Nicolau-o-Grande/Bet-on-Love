@@ -19,9 +19,23 @@
     :error="$errors->get('content')"
 />
 
+<x-admin.input-form
+    :label="__('Odd')"
+    :type="'text'"
+    :id="'odd'"
+    :placeholder="'Enter odd post...'"
+    :name="'odd'"
+    :value="old('odd', $post->odd ?? '')"
+    :autocomplete="'off'"
+    :required="true"
+    :error="$errors->get('odd')"
+/>
+
 <x-admin.select-form
+    :label="__('Status Post')"
     :name="'status_post'"
     :error="$errors->get('status_post')"
+    :placeholder="'Select Status Post...'"
 >
     <option value="">{{ __('Select Status Post...') }}</option>
     @foreach($status_posts as $status_post)
@@ -46,18 +60,6 @@
         :error="$errors->get('finish_date')"
     />
 @endif
-
-<x-admin.input-form
-    :label="__('Odd')"
-    :type="'text'"
-    :id="'odd'"
-    :placeholder="'Enter odd post...'"
-    :name="'odd'"
-    :value="old('odd', $post->odd ?? '')"
-    :autocomplete="'off'"
-    :required="true"
-    :error="$errors->get('odd')"
-/>
 
 <script>
     document.getElementById('odd').addEventListener('input', function (e) {

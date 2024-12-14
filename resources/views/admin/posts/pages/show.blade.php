@@ -13,7 +13,7 @@
             />
             <x-admin.span-information
                 :label="__('Status Post')"
-                :value="$post->status_post"
+                :value="__($post->status_post)"
             />
             <x-admin.span-information
                 :label="__('Code')"

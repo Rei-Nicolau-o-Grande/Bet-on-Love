@@ -179,6 +179,7 @@
     "Active": "Ativo",
     "Description": "Descrição",
     "Select Role...": "Selecione a Função...",
+    "Select Status Post...": "Selecione o Status da Postagem...",
     "The selected role is invalid.": "A função selecionada é inválida.",
     "The role field is required.": "O campo de função é obrigatório.",
 
@@ -203,5 +204,6 @@
 
     "Title": "Título",
     "Content": "Conteúdo",
-    "Finish Date": "Data de término"
+    "Finish Date": "Data de término",
+    "Status Post": "Status da Postagem"
 }

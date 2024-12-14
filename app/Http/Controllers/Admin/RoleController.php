@@ -31,9 +31,10 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRoleRequest $request)
+    public function store(StoreRoleRequest $request): RedirectResponse
     {
-        //
+        return redirect()->route('roles.index')
+            ->with('warning', 'Resource not implemented.');
     }
 
     /**
