@@ -33,7 +33,7 @@
                    @if(request()->routeIs('roles.*')) bg-gray-700 @endif">{{ __('Roles') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700
+                    <a href="{{ route('posts.index') }}" class="block p-2 rounded hover:bg-gray-700
                     @if(request()->routeIs('posts.*')) bg-gray-700 @endif">{{ __('Posts') }}</a>
                 </li>
                 <li>

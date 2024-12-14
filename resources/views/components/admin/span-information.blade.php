@@ -1,7 +1,7 @@
 <p class="text-md text-gray-900">
     <span class="font-bold">{{ $label }}:</span>
     <span id="value-text">
-        @if ($label === __('Description') && strlen($value) > 50)
+        @if (($label === __('Description') || $label === __('Content')) && strlen($value) > 50)
             {{ Str::limit($value, 50) }}
             <div id="hs-show-hide-collapse-heading" class="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-show-hide-collapse">
                 <p class="text-gray-500 mt-2">

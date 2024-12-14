@@ -192,5 +192,16 @@
     "Read less": "Leia menos",
 
     "Sign in": "Entrar",
-    "Sign up": "Inscrever-se"
+    "Sign up": "Inscrever-se",
+
+    "Published": "Publicado",
+    "Draft": "Rascunho",
+    "Pending": "Pendente",
+    "Denied": "Negado",
+    "Resolved": "Resolvido",
+    "Closed": "Fechado",
+
+    "Title": "Título",
+    "Content": "Conteúdo",
+    "Finish Date": "Data de término"
 }

@@ -26,7 +26,7 @@ class Ticket extends Model
     }
 
     /**
-     * Get the post that owns the ticket.
+     * Get the posts that owns the ticket.
      */
     public function post(): BelongsTo
     {

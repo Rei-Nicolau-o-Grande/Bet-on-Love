@@ -42,8 +42,8 @@
                     </td>
                 </tr>
             @endforeach
-            @break
-            @case('roles')
+        @break
+        @case('roles')
             @foreach($items as $role)
                 <tr class="hover:bg-stone-200 {{ $role->is_active ? 'bg-white' : 'bg-gray-300' }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -70,6 +70,42 @@
                     </td>
                 </tr>
             @endforeach
-            @break
+        @break
+        @case('posts')
+            @foreach($items as $post)
+                <tr class="hover:bg-stone-200 {{ $post->is_active ? 'bg-white' : 'bg-gray-300' }}">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->title }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->code }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->odd }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ __($post->status_post) }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->finish_date ? $post->finish_date->format('d/m/Y H:i') : __('No date') }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->created_at->diffForHumans() }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->updated_at->diffForHumans() }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $post->is_active ? __('Yes') : __('No') }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
+                        <a href="{{ route('posts.show', $post->id) }}"
+                           class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
+                            {{ __('View') }}
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        @break
     @endswitch
 </tbody>
