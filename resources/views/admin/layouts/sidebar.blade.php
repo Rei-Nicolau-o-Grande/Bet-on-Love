@@ -37,7 +37,7 @@
                     @if(request()->routeIs('posts.*')) bg-gray-700 @endif">{{ __('Posts') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="block p-2 rounded hover:bg-gray-700
+                    <a href="{{ route('tickets.index') }}" class="block p-2 rounded hover:bg-gray-700
                     @if(request()->routeIs('tickets.*')) bg-gray-700 @endif">{{ __('Tickets') }}</a>
                 </li>
                 <form action="{{ route('logout') }}" method="post">

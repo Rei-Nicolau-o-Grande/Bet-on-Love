@@ -169,7 +169,8 @@
     "Don't have an account?": "Não tem uma conta?",
     "Already have an account?": "Já tem uma conta?",
     "Show password": "Mostrar senha",
-    "Username": "Usuário",
+    "User": "Usuário",
+    "Username": "Nome do usuário",
     "Not Verified": "Não verificado",
     "Verified": "Verificado",
     "Verified At": "Verificado em",
@@ -182,6 +183,7 @@
     "Select Status Post...": "Selecione o Status da Postagem...",
     "The selected role is invalid.": "A função selecionada é inválida.",
     "The role field is required.": "O campo de função é obrigatório.",
+    "No records found": "Nenhum registro encontrado",
 
     "Update": "Atualizar",
     "Edit": "Editar",
@@ -205,5 +207,22 @@
     "Title": "Título",
     "Content": "Conteúdo",
     "Finish Date": "Data de término",
-    "Status Post": "Status da Postagem"
+    "Status Post": "Status da Postagem",
+
+    "Place": "Posição",
+
+    "First": "Primeiro",
+    "Second": "Segundo",
+    "Third": "Terceiro",
+    "Fourth": "Quarto",
+    "Fifth": "Quinto",
+    "Sixth": "Sexto",
+    "Seventh": "Sétimo",
+    "Eighth": "Oitavo",
+    "Ninth": "Nono",
+    "Tenth": "Décimo",
+
+    "Wait": "Aguarde",
+    "Processing": "Processando",
+    "Loser": "Perdedor"
 }

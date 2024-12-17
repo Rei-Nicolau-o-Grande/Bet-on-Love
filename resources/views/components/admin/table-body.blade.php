@@ -42,7 +42,7 @@
                     </td>
                 </tr>
             @endforeach
-        @break
+            @break
         @case('roles')
             @foreach($items as $role)
                 <tr class="hover:bg-stone-200 {{ $role->is_active ? 'bg-white' : 'bg-gray-300' }}">
@@ -70,7 +70,7 @@
                     </td>
                 </tr>
             @endforeach
-        @break
+            @break
         @case('posts')
             @foreach($items as $post)
                 <tr class="hover:bg-stone-200 {{ $post->is_active ? 'bg-white' : 'bg-gray-300' }}">
@@ -106,6 +106,42 @@
                     </td>
                 </tr>
             @endforeach
-        @break
+            @break
+        @case('tickets')
+            @foreach($items as $ticket)
+                <tr class="hover:bg-stone-200 {{ $ticket->is_active ? 'bg-white' : 'bg-gray-300' }}">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                        {{ $ticket->user->username }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->post->title }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ __($ticket->place) }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->code }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->created_at->diffForHumans() }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->updated_at->diffForHumans() }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->is_active ? __('Yes') : __('No') }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
+                        <a href="{{ route('tickets.show', $ticket->id) }}"
+                           class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">
+                            {{ __('View') }}
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            @break
+        @default
+            <h1 class="text-center ">{{ __('No model type found !!!') }}</h1>
+            @break
     @endswitch
 </tbody>

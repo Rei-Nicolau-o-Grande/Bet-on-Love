@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\PostAdminController;
+use App\Http\Controllers\Admin\TicketAdminController;
 use App\Http\Controllers\site\LoginController;
 use App\Http\Controllers\site\SettingsController;
 use App\Http\Controllers\site\UserPlayerController;
@@ -33,9 +34,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'users' => UserAdminController::class,
         'roles' => RoleController::class,
         'posts' => PostAdminController::class,
+        'tickets' => TicketAdminController::class
     ]);
 
     Route::patch('users/{user}/active', [UserAdminController::class, 'active'])->name('users.active');
     Route::patch('roles/{role}/active', [RoleController::class, 'active'])->name('roles.active');
     Route::patch('posts/{post}/active', [PostAdminController::class, 'active'])->name('posts.active');
+    Route::patch('tickets/{ticket}/active', [TicketAdminController::class, 'active'])->name('tickets.active');
 });
