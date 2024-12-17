@@ -9,7 +9,7 @@
         <x-slot name="cardInformation">
             <x-admin.span-information
                 :label="__('Title')"
-                :value="$post->title"
+                :value="Str::limit($post->title, 15)"
             />
             <x-admin.span-information
                 :label="__('Status Post')"

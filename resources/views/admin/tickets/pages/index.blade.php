@@ -16,10 +16,10 @@
 
     <x-admin.table
         :columns="[
-            __('Username'),
-            __('Post'),
-            __('Place'),
             __('Code'),
+            __('User'),
+            __('Post Title'),
+            __('Place'),
             __('Created At'),
             __('Updated At'),
             __('Active'),

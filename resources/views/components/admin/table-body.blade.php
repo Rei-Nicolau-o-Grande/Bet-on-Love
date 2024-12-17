@@ -30,7 +30,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $user->updated_at->diffForHumans() }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $user->is_active ? __('Yes') : __('No') }}
                     </td>
 
@@ -58,7 +58,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $role->updated_at->diffForHumans() }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $role->is_active ? __('Yes') : __('No') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
@@ -80,10 +80,10 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $post->code }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $post->odd }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ __($post->status_post) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
@@ -95,7 +95,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $post->updated_at->diffForHumans() }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $post->is_active ? __('Yes') : __('No') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">
@@ -111,16 +111,16 @@
             @foreach($items as $ticket)
                 <tr class="hover:bg-stone-200 {{ $ticket->is_active ? 'bg-white' : 'bg-gray-300' }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                        {{ $ticket->code }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $ticket->user->username }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $ticket->post->title }}
+                        {{ __(Str::limit($ticket->post->title, 15)) }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ __($ticket->place) }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $ticket->code }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $ticket->created_at->diffForHumans() }}
@@ -128,7 +128,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $ticket->updated_at->diffForHumans() }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $ticket->is_active ? __('Yes') : __('No') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-4">

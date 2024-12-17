@@ -17,6 +17,10 @@
                     </svg>
                 </button>
             </p>
+        @elseif(isset($href) && $href)
+            <a href="{{ $href }}" class="text-blue-900 font-medium underline hover:text-blue-700">
+                {{ $value }}
+            </a>
         @else
             {{ $value }}
         @endif
