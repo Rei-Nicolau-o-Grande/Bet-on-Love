@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\RoleAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\PostAdminController;
 use App\Http\Controllers\Admin\TicketAdminController;
@@ -32,13 +32,13 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::resources([
         'users' => UserAdminController::class,
-        'roles' => RoleController::class,
+        'roles' => RoleAdminController::class,
         'posts' => PostAdminController::class,
         'tickets' => TicketAdminController::class
     ]);
 
     Route::patch('users/{user}/active', [UserAdminController::class, 'active'])->name('users.active');
-    Route::patch('roles/{role}/active', [RoleController::class, 'active'])->name('roles.active');
+    Route::patch('roles/{role}/active', [RoleAdminController::class, 'active'])->name('roles.active');
     Route::patch('posts/{post}/active', [PostAdminController::class, 'active'])->name('posts.active');
     Route::patch('tickets/{ticket}/active', [TicketAdminController::class, 'active'])->name('tickets.active');
 });

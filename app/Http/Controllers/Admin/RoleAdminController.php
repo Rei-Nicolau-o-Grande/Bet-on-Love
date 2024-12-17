@@ -9,7 +9,7 @@ use App\Models\Role;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class RoleController extends Controller
+class RoleAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
