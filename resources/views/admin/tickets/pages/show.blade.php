@@ -3,6 +3,9 @@
 @section('title', __('Tickets'))
 
 @section('content')
+
+    <x-global.alert />
+
     <h1 class="text-2xl text-center">{{ __('Ticket') }} - {{ $ticket->code }}</h1>
 
     <x-admin.card-show>
@@ -23,7 +26,7 @@
             />
             <x-admin.span-information
                 :label="__('Place')"
-                :value="$ticket->place"
+                :value="__($ticket->place)"
             />
             <x-admin.span-information
                 :label="__('Created At')"

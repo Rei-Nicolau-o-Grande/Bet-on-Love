@@ -11,7 +11,11 @@ class UpdateTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        $user = $this->user();
+        $userBeingUpdated = $this->route('user'); // Assumindo que o 'user' na rota é o objeto User
+
+        // Verifica se o usuário é admin ou se está atualizando seus próprios dados
+        return $user->isAdmin() || $user->id === $userBeingUpdated->id;
     }
 
     /**
