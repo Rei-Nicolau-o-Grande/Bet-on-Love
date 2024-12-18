@@ -30,7 +30,7 @@
                 </a>
 
                 <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                   href=""
+                   href="{{ route('listPosts') }}"
                 >
                     {{ __('Posts') }}
                 </a>

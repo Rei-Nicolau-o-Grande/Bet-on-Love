@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\PostAdminController;
 use App\Http\Controllers\Admin\TicketAdminController;
 use App\Http\Controllers\site\LoginController;
+use App\Http\Controllers\site\PostController;
 use App\Http\Controllers\site\SettingsController;
 use App\Http\Controllers\site\UserPlayerController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,9 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('profile/{user}/edit', [UserPlayerController::class, 'edit'])->name('profile.edit');
     Route::put('profile/{user}', [UserPlayerController::class, 'update'])->name('profile.update');
     Route::delete('profile/{user}', [UserPlayerController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('posts', [PostController::class, 'listPosts'])->name('listPosts');
+    Route::get('post/{post:code}', [PostController::class, 'showPost'])->name('showPost');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
