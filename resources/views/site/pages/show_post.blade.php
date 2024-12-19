@@ -1,8 +1,10 @@
 @extends('site.app-site')
 
+@section('title',' - Post - ' . $post->code)
+
 @section('content')
     <x-global.alert />
-    <h1 class="text-4xl text-center my-3">{{ __('Post') }}</h1>
+    <h1 class="text-4xl text-center my-3">{{ $post->title }}</h1>
 
     <div class="max-w-4xl mx-auto bg-white p-4 rounded shadow-lg">
         <h2 class="font-bold text-2xl mb-2 text-gray-800">{{ $post->title }}</h2>
@@ -27,10 +29,20 @@
                 {{ $post->odd > 2 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                 {{ $post->odd }}
             </span>
+            <x-site.modal_create_ticket
+                :post="$post"
+            />
             <a href="{{ route('listPosts') }}"
                class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-full hover:bg-blue-600">
                 {{ __('Back') }}
             </a>
         </div>
+    </div>
+
+    <h1 class="text-4xl text-center my-3">Tickets</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-4">
+        @foreach($userTickets as $ticket)
+            <x-site.card_ticket :ticket="$ticket" />
+        @endforeach
     </div>
 @endsection

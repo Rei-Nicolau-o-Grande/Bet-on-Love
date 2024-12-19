@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TicketAdminController;
 use App\Http\Controllers\site\LoginController;
 use App\Http\Controllers\site\PostController;
 use App\Http\Controllers\site\SettingsController;
+use App\Http\Controllers\site\TicketController;
 use App\Http\Controllers\site\UserPlayerController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,10 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
 
     Route::get('posts', [PostController::class, 'listPosts'])->name('listPosts');
     Route::get('post/{post:code}', [PostController::class, 'showPost'])->name('showPost');
+
+    Route::get('tickets', [TicketController::class, 'getUserTickets'])->name('userTickets');
+    Route::get('ticket/{ticket:code}', [TicketController::class, 'showTicket'])->name('showTicket');
+    Route::post('ticket/{post}', [TicketController::class, 'createTicket'])->name('createTicket');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {

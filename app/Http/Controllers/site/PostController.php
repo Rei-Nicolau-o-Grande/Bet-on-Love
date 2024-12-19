@@ -4,6 +4,7 @@ namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Ticket;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -13,7 +14,9 @@ class PostController extends Controller
      */
     public function listPosts(): View
     {
-        $listPosts = Post::paginate(30);
+        $listPosts = Post::where('is_active', true)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(30);
         return view('site.pages.list_posts', compact('listPosts'));
     }
 
@@ -22,6 +25,10 @@ class PostController extends Controller
      */
     public function showPost(Post $post): View
     {
-        return view('site.pages.show_post', compact('post'));
+        $userTickets = Ticket::where('post_id', $post->id)
+                            ->where('is_active', true)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(30);
+        return view('site.pages.show_post', compact('post', 'userTickets'));
     }
 }
