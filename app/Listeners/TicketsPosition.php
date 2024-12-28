@@ -28,7 +28,7 @@ class TicketsPosition
         $finishDate = $post->finish_date;
 
         // Filtra os tickets e ordena pelas datas mais próximas de finishDate
-        $tickets = Ticket::where('end_date', '<=', $finishDate)
+        $tickets = Ticket::where('post_id', $post->id)
             ->orderByRaw('ABS(DATEDIFF(end_date, ?))', [$finishDate])
             ->get();
 
