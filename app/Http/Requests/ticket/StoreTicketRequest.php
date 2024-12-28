@@ -22,7 +22,7 @@ class StoreTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'value' => ['required', 'string', 'min:0'],
+            'value' => ['required', 'numeric', 'min:1'],
             'end_date' => ['required', 'date', 'after:today'],
         ];
     }
@@ -36,7 +36,7 @@ class StoreTicketRequest extends FormRequest
     {
         return [
             'value.required' => __('The value field is required.'),
-            'value.min' => __('The value field must be at least 0.'),
+            'value.min' => __('The value field must be at least 1.'),
             'end_date.required' => __('The end date field is required.'),
             'end_date.date' => __('The end date field must be a date.'),
             'end_date.after' => __('The date field must be a date after today.'),
