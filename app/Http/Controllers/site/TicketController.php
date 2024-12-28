@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\site;
 
+use App\Events\TicketCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ticket\StoreTicketRequest;
 use App\Models\Post;
@@ -42,6 +43,9 @@ class TicketController extends Controller
             'value' => $validated['value'],
             'end_date' => $validated['end_date']
         ]);
+
+        // Evento TicketCreated
+        event(new TicketCreated($ticketCreated));
 
         return redirect()->route('showTicket', $ticketCreated->code)
             ->with('success', 'Ticket created successfully');

@@ -48,7 +48,7 @@ class Post extends Model
      */
     public function tickets(): HasMany
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Ticket::class, 'post_id', 'id');
     }
 
     /**
