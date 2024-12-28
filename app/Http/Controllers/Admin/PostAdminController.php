@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enum\StatusPost;
+use App\Events\FinishDatePost;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\post\StorePostRequest;
 use App\Http\Requests\post\UpdatePostRequest;
@@ -73,6 +74,11 @@ class PostAdminController extends Controller
         $validated = $request->safe()->only(['title', 'content', 'status_post', 'finish_date']);
 
         $post->update($validated);
+
+        if ($post->finish_date != null) {
+            event(new FinishDatePost($post));
+        }
+
 
         return redirect()->route('posts.show', $post->id)
             ->with('success', 'Post updated successfully');

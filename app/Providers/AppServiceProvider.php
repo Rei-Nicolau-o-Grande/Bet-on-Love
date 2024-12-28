@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\FinishDatePost;
 use App\Events\TicketCreated;
-use App\Events\TicketValueUpdated;
+use App\Listeners\TicketsPosition;
 use App\Listeners\UpdatePostAmount;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(
             TicketCreated::class,
             UpdatePostAmount::class
+        );
+
+        Event::listen(
+            FinishDatePost::class,
+            TicketsPosition::class
         );
     }
 }

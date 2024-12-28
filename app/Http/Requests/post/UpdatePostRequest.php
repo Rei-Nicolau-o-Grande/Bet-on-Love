@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\post;
 
+use App\Enum\StatusPost;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePostRequest extends FormRequest
@@ -12,6 +13,18 @@ class UpdatePostRequest extends FormRequest
     public function authorize(): bool
     {
         return auth()->user()->isAdmin();
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        if ($this->finish_date) {
+            $this->merge([
+                'status_post' => StatusPost::Denied->value,
+            ]);
+        }
     }
 
     /**
