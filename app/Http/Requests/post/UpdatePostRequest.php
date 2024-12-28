@@ -22,7 +22,7 @@ class UpdatePostRequest extends FormRequest
     {
         if ($this->finish_date) {
             $this->merge([
-                'status_post' => StatusPost::Denied->value,
+                'status_post' => StatusPost::Finished->value,
             ]);
         }
     }
@@ -37,7 +37,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
-            'status_post' => ['required', 'string', 'in:Published,Pending,Denied,Draft'],
+            'status_post' => ['required', 'string', 'in:Published,Pending,Denied,Draft,Finished'],
             'finish_date' => ['nullable', 'date'],
         ];
     }

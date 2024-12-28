@@ -8,4 +8,5 @@ enum StatusPost: string
     case Pending = 'Pending';
     case Denied = 'Denied';
     case Draft = 'Draft';
+    case Finished = 'Finished';
 }

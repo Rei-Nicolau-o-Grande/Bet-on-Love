@@ -35,7 +35,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
-            'status_post' => ['required', 'string', 'in:Published,Pending,Denied,Draft'],
+            'status_post' => ['required', 'string', 'in:Published,Pending,Denied,Draft,Finished'],
             'code' => ['required', 'string', 'unique:posts', 'size:8'],
         ];
     }
