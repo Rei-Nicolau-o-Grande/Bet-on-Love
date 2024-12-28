@@ -18,7 +18,7 @@
     </div>
     <div class="mt-4 flex items-center justify-between">
         <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-            {{ $post->amount != null ? 'R$ ' . number_format($post->amount, 2, ',', '.') : 'Nada ainda' }}
+            {{ $post->formatted_amount }}
         </span>
         <a href="{{ route('showPost', $post->code) }}"
            class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-full hover:bg-blue-600">

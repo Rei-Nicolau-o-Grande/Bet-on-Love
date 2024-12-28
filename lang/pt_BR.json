@@ -215,6 +215,8 @@
     "Amount": "Quantia",
     "Value": "Valor",
 
+    "The date field must be a date after today.": "O campo de data deve ser uma data posterior de hoje.",
+
     "Place": "Posição",
 
     "First": "Primeiro",

@@ -39,8 +39,7 @@ class StoreTicketRequest extends FormRequest
             'value.min' => __('The value field must be at least 0.'),
             'end_date.required' => __('The end date field is required.'),
             'end_date.date' => __('The end date field must be a date.'),
-            'end_date.after' => __('The end date field must be a date after today.'),
-            'end_date.after_or_equal' => __('The end date field must be a date after or equal to today.'),
+            'end_date.after' => __('The date field must be a date after today.'),
         ];
     }
 }

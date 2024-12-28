@@ -19,18 +19,6 @@
     :error="$errors->get('content')"
 />
 
-{{--<x-admin.input-form--}}
-{{--    :label="__('Odd')"--}}
-{{--    :type="'text'"--}}
-{{--    :id="'odd'"--}}
-{{--    :placeholder="'Enter odd post...'"--}}
-{{--    :name="'odd'"--}}
-{{--    :value="old('odd', $post->odd ?? '')"--}}
-{{--    :autocomplete="'off'"--}}
-{{--    :required="true"--}}
-{{--    :error="$errors->get('odd')"--}}
-{{--/>--}}
-
 <x-admin.select-form
     :label="__('Status Post')"
     :name="'status_post'"
@@ -60,36 +48,6 @@
         :error="$errors->get('finish_date')"
     />
 @endif
-
-{{--<script>--}}
-{{--    document.getElementById('odd').addEventListener('input', function (e) {--}}
-{{--        let value = e.target.value.replace(/[^0-9]/g, ''); // Remove caracteres não numéricos--}}
-
-{{--        // Garante que o campo fique vazio se nada for digitado--}}
-{{--        if (value.length === 0) {--}}
-{{--            e.target.value = '';--}}
-{{--            return;--}}
-{{--        }--}}
-
-{{--        // Remove zeros à esquerda--}}
-{{--        value = value.replace(/^0+/, '');--}}
-
-{{--        // Adiciona o ponto decimal no lugar correto--}}
-{{--        if (value.length === 1) {--}}
-{{--            value = `0.0${value}`; // Exemplo: '1' -> '0.01'--}}
-{{--        } else if (value.length === 2) {--}}
-{{--            value = `0.${value}`; // Exemplo: '12' -> '0.12'--}}
-{{--        } else {--}}
-{{--            const integerPart = value.slice(0, value.length - 2); // Parte inteira--}}
-{{--            const decimalPart = value.slice(-2); // Últimos dois dígitos--}}
-{{--            value = `${integerPart}.${decimalPart}`; // Exemplo: '123' -> '1.23'--}}
-{{--        }--}}
-
-{{--        // Atualiza o campo com o valor formatado--}}
-{{--        e.target.value = value;--}}
-{{--    });--}}
-
-{{--</script>--}}
 
 <div class="flex justify-start gap-4 mt-4">
     <a href="{{ isset($user) ? route('posts.show', $user->id) : route('posts.index') }}">
