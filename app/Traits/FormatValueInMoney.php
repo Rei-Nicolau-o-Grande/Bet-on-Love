@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-trait FormatOdd
+trait FormatValueInMoney
 {
     /**
      * Formata um valor numérico para o formato esperado com ponto decimal.
@@ -11,7 +11,7 @@ trait FormatOdd
      * @param string $value
      * @return string
      */
-    public function formatOdd(string $value): string
+    public function execute(string $value): string
     {
         // Remove caracteres não numéricos
         $value = preg_replace('/[^0-9]/', '', $value);

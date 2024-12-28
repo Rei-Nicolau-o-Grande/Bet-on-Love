@@ -24,8 +24,8 @@
                 :value="$post->finish_date ? $post->finish_date->format('d/m/Y H:i') : __('No date')"
             />
             <x-admin.span-information
-                :label="__('Odd')"
-                :value="$post->odd"
+                :label="__('Amount')"
+                :value="$post->formatted_amount"
             />
             <x-admin.span-information
                 :label="__('Created At')"

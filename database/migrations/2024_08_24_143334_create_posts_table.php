@@ -20,7 +20,7 @@ return new class extends Migration
                 ->default(StatusPost::Pending->value);
             $table->string('code')->unique();
             $table->dateTime('finish_date')->nullable();
-            $table->decimal('odd');
+            $table->decimal('amount', total: 15, places: 2)->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

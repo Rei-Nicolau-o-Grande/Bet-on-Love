@@ -17,7 +17,7 @@ class PostAdminController extends Controller
      */
     public function index(): View
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(15);
         return view('admin.posts.pages.index', compact('posts'));
     }
 
@@ -35,13 +35,12 @@ class PostAdminController extends Controller
      */
     public function store(StorePostRequest $request): RedirectResponse
     {
-        $validated = $request->safe()->only(['title', 'content', 'status_post', 'odd', 'code']);
+        $validated = $request->safe()->only(['title', 'content', 'status_post', 'code']);
 
         $postCreated = Post::create([
             'title' => $validated['title'],
             'content' => $validated['content'],
             'status_post' => $validated['status_post'],
-            'odd' => $validated['odd'],
             'code' => $validated['code']
         ]);
 
@@ -71,7 +70,7 @@ class PostAdminController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post): RedirectResponse
     {
-        $validated = $request->safe()->only(['title', 'content', 'status_post', 'finish_date', 'odd']);
+        $validated = $request->safe()->only(['title', 'content', 'status_post', 'finish_date']);
 
         $post->update($validated);
 

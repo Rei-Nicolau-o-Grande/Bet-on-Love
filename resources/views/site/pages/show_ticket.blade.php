@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="mb-4">
-                    <p class="text-sm text-gray-600">Odd:</p>
-                    <p class="font-medium">{{ $ticket->post->odd }}</p>
+                    <p class="text-sm text-gray-600">{{ __('Amount') }}</p>
+                    <p class="font-medium">{{ $ticket->post->formatted_amount }}</p>
                 </div>
 
                 <div class="mb-4">

@@ -81,7 +81,8 @@
                         {{ $post->code }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                        {{ $post->odd }}
+{{--                        {{ $post->amount != null ? 'R$ ' . number_format($post->amount, 2, ',', '.') : 'Nada ainda' }}--}}
+                        {{ $post->formatted_amount }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ __($post->status_post) }}
@@ -112,6 +113,9 @@
                 <tr class="hover:bg-stone-200 {{ $ticket->is_active ? 'bg-white' : 'bg-gray-300' }}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $ticket->code }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->formatted_value }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ $ticket->user->username }}

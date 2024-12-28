@@ -22,7 +22,7 @@ class PostFactory extends Factory
             'status_post' => $this->faker->randomElement(['Published', 'Draft']),
             'code' => substr(md5(uniqid(rand(), true)), 0, 8),
 //            'finish_date' => $this->faker->dateTimeBetween('now', '+1 year'),
-            'odd' => $this->faker->randomFloat(2, 0, 10),
+//            'odd' => $this->faker->randomFloat(2, 0, 10),
             'is_active' => true,
         ];
     }

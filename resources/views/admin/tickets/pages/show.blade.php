@@ -29,6 +29,10 @@
                 :value="__($ticket->place)"
             />
             <x-admin.span-information
+                :label="__('Value')"
+                :value="__($ticket->formatted_value)"
+            />
+            <x-admin.span-information
                 :label="__('Created At')"
                 :value="$ticket->created_at->diffForHumans()"
             />

@@ -18,7 +18,7 @@
         :columns="[
             __('Title'),
             __('Code'),
-            __('Odd'),
+            __('Amount'),
             __('Status Post'),
             __('Finish Date'),
             __('Created At'),
@@ -29,5 +29,9 @@
         :items="$posts"
         modelType="posts"
     />
+
+    <div class="my-5 mx-5 justify-items-end">
+        {{ $posts->links() }}
+    </div>
 
 @endsection

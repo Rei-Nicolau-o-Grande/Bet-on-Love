@@ -26,4 +26,21 @@ class StoreTicketRequest extends FormRequest
             'end_date' => ['required', 'date', 'after:today'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'value.required' => __('The value field is required.'),
+            'value.min' => __('The value field must be at least 0.'),
+            'end_date.required' => __('The end date field is required.'),
+            'end_date.date' => __('The end date field must be a date.'),
+            'end_date.after' => __('The end date field must be a date after today.'),
+            'end_date.after_or_equal' => __('The end date field must be a date after or equal to today.'),
+        ];
+    }
 }

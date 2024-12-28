@@ -35,6 +35,8 @@ class TicketController extends Controller
     {
         $validated = $request->safe()->only(['value', 'end_date']);
 
+//        dd($validated);
+
         $ticketCreated = Ticket::create([
             'user_id' => auth()->user()->id,
             'post_id' => $post->id,
@@ -42,6 +44,8 @@ class TicketController extends Controller
             'value' => $validated['value'],
             'end_date' => $validated['end_date']
         ]);
+
+//        dd($ticketCreated);
 
         return redirect()->route('showTicket', $ticketCreated->code)
             ->with('success', 'Ticket created successfully');

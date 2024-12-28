@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Traits\FormatOdd;
+use App\Traits\FormatValueInMoney;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
-    use HasFactory, FormatOdd;
+    use HasFactory;
 
     /**
      * The table associated with the model.
@@ -29,7 +29,7 @@ class Post extends Model
         'status_post',
         'code',
         'finish_date',
-        'odd',
+        'amount',
         'is_active',
     ];
 
@@ -65,11 +65,11 @@ class Post extends Model
     }
 
     /**
-     * Set attribute odd to format 2 decimal places.
+     * Format the amount attribute.
      */
-    public function setOddAttribute($value): void
+    protected function getFormattedAmountAttribute(): string
     {
-        $this->attributes['odd'] = $this->formatOdd($value);
+        return 'R$ ' . number_format($this->amount, 2, ',', '.');
     }
 
 }

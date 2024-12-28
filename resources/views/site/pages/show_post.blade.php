@@ -25,9 +25,9 @@
             </span>
         </div>
         <div class="mt-4 flex justify-between items-center">
-            <span class="px-3 py-1 text-xs font-medium rounded-full
-                {{ $post->odd > 2 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                {{ $post->odd }}
+            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+{{--                {{ $post->amount != null ? 'R$ ' . number_format($post->amount, 2, ',', '.') : 'Nada ainda' }}--}}
+                {{ $post->formatted_amount }}
             </span>
             <x-site.modal_create_ticket
                 :post="$post"

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\FormatOdd;
+use App\Traits\FormatValueInMoney;
 use Brick\Math\BigDecimal;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket extends Model
 {
-    use HasFactory, FormatOdd;
+    use HasFactory, FormatValueInMoney;
 
     /**
      * The table associated with the model.
@@ -66,7 +66,7 @@ class Ticket extends Model
      */
     protected function setValueAttribute($value): void
     {
-        $this->attributes['value'] = $this->formatOdd($value);
+        $this->attributes['value'] = $this->execute($value);
     }
 
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests\post;
 
-use App\Models\Post;
-use App\Traits\FormatOdd;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePostRequest extends FormRequest
@@ -28,7 +26,6 @@ class UpdatePostRequest extends FormRequest
             'content' => ['required', 'string'],
             'status_post' => ['required', 'string', 'in:Published,Pending,Denied,Draft'],
             'finish_date' => ['nullable', 'date'],
-            'odd' => ['required', 'numeric'],
         ];
     }
 }

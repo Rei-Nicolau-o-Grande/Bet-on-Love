@@ -17,6 +17,7 @@
     <x-admin.table
         :columns="[
             __('Code'),
+            __('Value'),
             __('User'),
             __('Post Title'),
             __('Place'),
