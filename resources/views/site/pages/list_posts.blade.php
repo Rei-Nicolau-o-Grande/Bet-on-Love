@@ -1,5 +1,7 @@
 @extends('site.app-site')
 
+@section('title', __('Posts'))
+
 @section('content')
     <x-global.alert />
     <h1 class="text-4xl text-center my-3">{{ __('Posts') }}</h1>

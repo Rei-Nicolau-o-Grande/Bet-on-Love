@@ -216,6 +216,7 @@
     "Amount": "Quantia",
     "Value": "Valor",
     "Ticket Value": "Valor do Bilhete",
+    "Create Bet": "Criar Aposta",
 
     "The value field must be at least 1.": "O campo de valor deve ser pelo menos 1.",
     "The date field must be a date after today.": "O campo de data deve ser uma data posterior de hoje.",

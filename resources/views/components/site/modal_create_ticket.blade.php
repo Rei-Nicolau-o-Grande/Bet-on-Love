@@ -7,7 +7,7 @@
         <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
             <div class="flex justify-between items-center py-3 px-4 border-b">
                 <h3 id="hs-basic-modal-label" class="font-bold text-gray-800">
-                    Modal Form
+                    {{ __('Create Bet') }}
                 </h3>
                 <button type="button" class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" aria-label="Close" data-hs-overlay="#hs-basic-modal">
                     <span class="sr-only">Close</span>

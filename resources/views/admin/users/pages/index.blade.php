@@ -29,4 +29,8 @@
         modelType="users"
     />
 
+    <div class="my-5 mx-5 justify-items-end">
+        {{ $users->links() }}
+    </div>
+
 @endsection

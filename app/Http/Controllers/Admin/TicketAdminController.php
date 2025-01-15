@@ -18,7 +18,7 @@ class TicketAdminController extends Controller
     public function index(): View
     {
         return view('admin.tickets.pages.index', [
-            'tickets' => Ticket::all()
+            'tickets' => Ticket::orderBy('created_at', 'desc')->paginate(15)
         ]);
     }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Casamento Merda Bet - @yield('title')</title>
+    <title>Aposte no Amor - @yield('title')</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body class="bg-slate-200">
@@ -20,7 +20,7 @@
             </header>
 
             <main class="mt-4">
-                <h1 class="text-2xl font-semibold text-gray-900 text-center">Administração Casamento Merda Bet</h1>
+                <h1 class="text-2xl font-semibold text-gray-900 text-center">Administração Aposte no Amor</h1>
                 @yield('content')
             </main>
 
