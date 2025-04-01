@@ -30,7 +30,7 @@
                            required
                     >
                     @error('value')
-                        <p class="text-red-700 text-xs mt-1">{{ $message }}</p>
+                        <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
@@ -43,7 +43,7 @@
                            required
                     >
                     @error('end_date')
-                        <p class="text-red-700 text-xs mt-1">{{ $message }}</p>
+                        <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -64,30 +64,13 @@
 </div>
 
 <script>
-    document.getElementById('value').addEventListener('input', function (e) {
-        let value = e.target.value.replace(/[^0-9]/g, ''); // Remove caracteres não numéricos
-
-        // Garante que o campo fique vazio se nada for digitado
-        if (value.length === 0) {
-            e.target.value = '';
-            return;
-        }
-
-        // Remove zeros à esquerda
-        value = value.replace(/^0+/, '');
-
-        // Divide o valor em parte inteira e decimal
-        let integerPart = value.slice(0, value.length - 2) || '0'; // Parte inteira
-        let decimalPart = value.slice(-2); // Últimos dois dígitos
-
-        // Formata a parte inteira com separadores de milhares
-        integerPart = new Intl.NumberFormat('pt-BR').format(parseInt(integerPart, 10));
-
-        // Concatena a parte inteira formatada com a parte decimal
-        value = `${integerPart}.${decimalPart}`;
-
-        // Atualiza o campo com o valor formatado
-        e.target.value = value;
+    document.getElementById("value").addEventListener("input", function() {
+        let input = this;
+        let value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
+        value = (parseInt(value) / 100).toFixed(2); // Converte para decimal
+        value = value.replace(".", ","); // Troca ponto por vírgula
+        value = value.replace(/(\d)(?=(\d{3})+,)/g, "$1."); // Formata com pontos
+        input.value = value;
     });
 </script>
 

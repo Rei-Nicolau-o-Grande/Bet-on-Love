@@ -29,8 +29,6 @@ class UpdatePostAmount
         $post = Post::find($ticket->post_id);
         if ($post) {
             Log::info("Listener chamado para Ticket ID: {$ticket->id}");
-
-//            $post->amount += ($ticket->value / 2); // Divide por 2, Soma o valor do ticket ao amount
             $post->amount = $post->tickets()->sum('value'); // Soma o valor de todos os tickets ao amount
             $post->save();
         }

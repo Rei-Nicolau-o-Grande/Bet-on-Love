@@ -22,7 +22,7 @@ class StoreTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'value' => ['required', 'numeric', 'min:1'],
+            'value' => ['required', 'string', 'min:1'],
             'end_date' => ['required', 'date', 'after:today'],
         ];
     }

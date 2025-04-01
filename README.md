@@ -55,6 +55,15 @@ ADMIN_PASSWORD=
     sail artisan migrate:fresh --seed
 ```
 
+- Subindo Servidor
+```bash
+    sail artisan serve
+```
+ou
+```bash
+    sail npm run dev
+```
+
 - Acessar a aplicação
 ```bash
     http://localhost
