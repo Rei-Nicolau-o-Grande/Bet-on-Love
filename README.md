@@ -7,7 +7,33 @@ Onde você pode apostar no amor e lucrar.
 - Se o casal continuar junto, o usuário perde a aposta.
 - O valor da aposta é definido pelo usuário.
 - O usuário pode apostar em quantos casais quiser.
-- Quem acerta a data da separação ganha um prêmio extra.
+
+### Lógica de Posicionamento de Tickets
+A funcionalidade de posicionamento de tickets é responsável por classificar os tickets associados a um post
+baseado na proximidade de suas datas de término (end_date) em relação à finish_date do post.
+Como funciona:
+Intervalo de 2 Semanas:
+A lógica considera um intervalo de 2 semanas antes e 2 semanas depois da finish_date do post. O sistema filtra
+os tickets cujo end_date esteja dentro desse intervalo.
+
+**Classificação dos Tickets:**
+
+**Top 10 Mais Próximos:**
+Os 10 tickets com as datas de término mais próximas à finish_date (dentro do intervalo de 2 semanas)
+são classificados e recebem uma posição específica.
+
+**1º lugar:** Primeiro ticket mais próximo.
+
+**2º lugar:** Segundo ticket mais próximo.
+
+**Até o 10º lugar:** Seguindo essa ordem.
+
+**Tickets Fora do Top 10:**
+Todos os tickets dentro do intervalo de 2 semanas, mas que não estão entre os 10 mais próximos, são marcados como Loser.
+
+**Tickets Fora do Intervalo:**
+Qualquer ticket cuja end_date esteja fora do intervalo de 2 semanas antes ou depois da finish_date também
+é marcado como Loser.
 
 # Instalando localmente com Docker
 
