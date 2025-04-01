@@ -17,7 +17,7 @@
                     </svg>
                 </button>
             </div>
-            <form class="p-4 overflow-y-auto" action="{{ route('createTicket', $post->id) }}" method="post">
+            <form class="p-4 overflow-y-auto" action="{{ route('createTicket', $post->id) }}" method="post" autocomplete="off">
                 @csrf
                 @method('POST')
                 <div class="mb-4">

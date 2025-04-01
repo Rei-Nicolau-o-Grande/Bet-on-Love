@@ -25,6 +25,10 @@
                 :href="route('posts.show', $ticket->post->id)"
             />
             <x-admin.span-information
+                :label="__('End Date')"
+                :value="$ticket->end_date->format('d/m/Y H:i')"
+            />
+            <x-admin.span-information
                 :label="__('Place')"
                 :value="__($ticket->place)"
             />
@@ -34,11 +38,11 @@
             />
             <x-admin.span-information
                 :label="__('Created At')"
-                :value="$ticket->created_at->diffForHumans()"
+                :value="$ticket->created_at->format('d/m/Y H:i')"
             />
             <x-admin.span-information
                 :label="__('Updated At')"
-                :value="$ticket->updated_at->diffForHumans()"
+                :value="$ticket->updated_at->format('d/m/Y H:i')"
             />
             <x-admin.span-information
                 :label="__('Active')"

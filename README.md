@@ -50,7 +50,11 @@ ADMIN_PASSWORD=
     sail artisan key:generate
 ```
 
-- Criar as migrações e popular o banco de dados
+- Criar as migrações e criar Roles e AdminUser
+```bash
+    sail artisan migrate:fresh --seed --seeder=RoleAndAdminSeeder
+```
+ou popular todo o banco de dados
 ```bash
     sail artisan migrate:fresh --seed
 ```

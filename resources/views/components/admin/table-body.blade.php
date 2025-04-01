@@ -120,16 +120,22 @@
                         {{ $ticket->user->username }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->post->finish_date->format('d/m/Y H:i') }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         {{ __(Str::limit($ticket->post->title, 15)) }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                        {{ $ticket->end_date->format('d/m/Y H:i')}}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ __($ticket->place) }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $ticket->created_at->diffForHumans() }}
+                        {{ $ticket->created_at->format('d/m/Y H:i')}}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {{ $ticket->updated_at->diffForHumans() }}
+                        {{ $ticket->updated_at->format('d/m/Y H:i') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                         {{ $ticket->is_active ? __('Yes') : __('No') }}
